@@ -3,17 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ssCandy&#39;s blog</title>
+  <title>MVC设计模式 | ssCandy&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Nothing is impossible">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ssCandy's blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="MVC模式（Model-View-Controller）是软件工程中的一种软件架构模式，把软件系统分为三个基本部分：模型（Model）、视图（View）和控制器（Controller）。
+MVC模式最早由Trygve Reenskaug在1978年提出[1] ，是施乐帕罗奥多研究中心（Xerox PARC）在20世纪80年代为程序语言Smalltalk发明的一种软件设计模式。MVC模式的目的是实现">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MVC设计模式">
+<meta property="og:url" content="http://yoursite.com/2015/10/11/MVC设计模式/index.html">
 <meta property="og:site_name" content="ssCandy's blog">
-<meta property="og:description" content="Nothing is impossible">
+<meta property="og:description" content="MVC模式（Model-View-Controller）是软件工程中的一种软件架构模式，把软件系统分为三个基本部分：模型（Model）、视图（View）和控制器（Controller）。
+MVC模式最早由Trygve Reenskaug在1978年提出[1] ，是施乐帕罗奥多研究中心（Xerox PARC）在20世纪80年代为程序语言Smalltalk发明的一种软件设计模式。MVC模式的目的是实现">
+<meta property="og:image" content="http://yoursite.com/Users/candy/Desktop/碟中谍系列/ModelViewControllerDiagramZh.png">
+<meta property="og:updated_time" content="2015-10-11T02:49:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ssCandy's blog">
-<meta name="twitter:description" content="Nothing is impossible">
+<meta name="twitter:title" content="MVC设计模式">
+<meta name="twitter:description" content="MVC模式（Model-View-Controller）是软件工程中的一种软件架构模式，把软件系统分为三个基本部分：模型（Model）、视图（View）和控制器（Controller）。
+MVC模式最早由Trygve Reenskaug在1978年提出[1] ，是施乐帕罗奥多研究中心（Xerox PARC）在20世纪80年代为程序语言Smalltalk发明的一种软件设计模式。MVC模式的目的是实现">
   
     <link rel="alternative" href="/atom.xml" title="ssCandy&#39;s blog" type="application/atom+xml">
   
@@ -56,15 +61,15 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-MVC设计模式" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-MVC设计模式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
       <header class="article-header">
         
   
-    <a class="article-title" href="/2015/10/11/MVC设计模式/">MVC设计模式</a>
+    <h1 class="article-title" itemprop="name">
+      MVC设计模式
+    </h1>
   
 
       </header>
@@ -108,79 +113,20 @@
     </footer>
   </div>
   
-</article>
-
-
-  
-    <article id="post-KVC-and-KVO" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
     
-      <header class="article-header">
-        
+<nav id="article-nav">
   
-    <a class="article-title" href="/2015/10/11/KVC-and-KVO/">KVC and KVO</a>
   
+    <a href="/2015/10/11/KVC-and-KVO/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">KVC and KVO</div>
+    </a>
+  
+</nav>
 
-      </header>
-    
-    <time class="article-date" datetime="2015-10-11T02:15:58.000Z" itemprop="datePublished">10-11-2015</time>
-    
-  </div>
-  <div class="article-inner">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<p>  KVC:键-值编码是一种间接访问对象的属性使用字符串来标识属性，而不是通过调用存取方法，直接或通过实例变量访问的机制。很多情况下可以简化程序代码。apple文档其实给了一个很好的例子。<br>  KVO：键值观察机制，他提供了观察某一属性变化的方法，极大的简化了代码。<br>  具体情况具体分析，下面是对按钮点击变化状态的监控。<br>  比如自定义一个button</p>
-  <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr_selector">[self addObserver:self forKeyPath:@"highlighted" options:0 context:nil]</span>;</span><br><span class="line"></span><br><span class="line"><span class="id">#pragma</span> <span class="tag">mark</span> <span class="tag">KVO</span></span><br><span class="line"><span class="tag">-</span>(void)<span class="tag">observe</span> <span class="tag">ValueForKeyPath</span>:(NSString *)<span class="tag">keyPath</span> <span class="tag">of</span> <span class="tag">Object</span>:(id)<span class="tag">object</span> <span class="tag">change</span>:(NSDictionary *)<span class="tag">change</span> <span class="tag">context</span>:(void *)<span class="tag">context</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="tag">if</span>([keyPath <span class="attribute">isEqualToString</span>:@<span class="string">"highlighted"</span>])</span><br><span class="line">    &#123;</span><br><span class="line">    <span class="attr_selector">[self setNeedsDisplay]</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  对于系统是根据KeyPath去取到相应的值发生改变，理论上来说是和kvc机制的道理是一样的。<br>  对于kvc机制如何通过key寻找到value：<br>  当通过KVC调用对象时，比如：[self valueForKey:@”someKey”]时，程序会自动试图通过几种不同的方式解析这个调用。首先查找对象是否带有someKey这个方法，如果没找到，会继续查找对象是否带有somekey这个实例变量（iVar），如果还没有找到，程序会继续试图调用-(id)valueForUndefineKey:这个方法。如果这个方法还是没有被实现的话，程序会抛出一个NSUndefinedKeyException异常错误。<br>  （cocoachina.com注：Key-Value Coding查找方法的时候，不仅仅会查找somekey这个方法，还会查找个体someKey这个方法，前面加一个get，或者_someKey以及_getsomeKey这几种形式。同时，查找实例变量的时候也会不仅仅查找someKey这个变量，也会查找_someKey这个变量是否存在。）</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/11/KVC-and-KVO/" data-id="ciflww1kh0000vg2fe6xpx7e4" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
 
-
-  
-    <article id="post-什么是hexo" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-    <time class="article-date" datetime="2015-10-11T02:01:18.000Z" itemprop="datePublished">10-11-2015</time>
-    
-  </div>
-  <div class="article-inner">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##什么是hexo</p>
-<p>hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github和Heroku上。作者是来自台湾的@tommy351。引用@tommy351的话，</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo：</span><br><span class="line">快速、简单且功能强大的 Node<span class="class">.js</span> 博客框架。</span><br><span class="line">A fast, simple &amp; powerful blog framework, powered by Node<span class="class">.js</span>.</span><br></pre></td></tr></table></figure>
-<p>类似于jekyll、Octopress、Wordpress，我们可以用hexo创建自己的博客，托管到github或Heroku上，绑定自己的域名，用markdown写文章。本博客即使用hexo创建并托管在github上。</p>
-<p>##为什么要用hexo</p>
-<p>还是引用下作者的话：</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">不可思议的快速 ─ 只要一眨眼静态文件即生成完成</span><br><span class="line">支持 <span class="keyword">Markdown</span><br><span class="line"></span>仅需一道指令即可部署到 GitHub Pages 和 Heroku</span><br><span class="line">已移植 Octopress 插件</span><br><span class="line">高扩展性、自订性</span><br><span class="line">兼容于 Windows, Mac &amp; Linux</span><br></pre></td></tr></table></figure>
-<p>我再加几条：</p>
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">* </span>易用。不仅部署简单，平时使用中仅需要hexo new 、hexo generate、 hexo server、 hexo deploy四个命令。不像Jekyll需要很多繁琐的git命令。</span><br><span class="line"><span class="bullet">* </span>轻。文件少、小，易理解，方便自定义。</span><br><span class="line"><span class="bullet">* </span>用户多。虽然赶不上Jekyll和Octopress，但遇到什么问题都能搜索到答案，或者找到同样使用hexo的用户进行参考和咨询。</span><br></pre></td></tr></table></figure>
-<p>##谁能使用hexo<br>这是一个免费开源的博客程序，任何人都可以使用和修改。但是不同于wordpress，hexo由于需要使用Github,Git,Markdown,Node.js这样的工具，好多插件、widget都需要自己安装、设置。所以适合那些有一定计算机基础，喜欢折腾的人。但是，不要恐惧，只要跟着本教程走，就能很方便地让自己的博客”飞起来”。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/11/什么是hexo/" data-id="ciflwiwio0000rf2fptqiiab5" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-  
 </section>
         
       </div>
